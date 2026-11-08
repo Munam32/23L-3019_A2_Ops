@@ -11,7 +11,7 @@ WORKDIR /app
 RUN useradd --create-home --uid 10001 appuser
 
 COPY requirements-web.txt .
-RUN pip install -r requirements-web.txt
+RUN pip install --no-compile -r requirements-web.txt
 
 COPY --chown=appuser:appuser app.py inference.py ./
 COPY --chown=appuser:appuser templates templates
