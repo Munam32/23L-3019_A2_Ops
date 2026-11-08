@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 mlruns/
 tuner_runs/
+requirements_run.txt
 *.db
 *.keras
 *.h5
