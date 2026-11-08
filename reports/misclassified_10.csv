@@ -1,0 +1,11 @@
+path,class,label,prob_ai,pred
+data/AiArtData/AiArtData/Nov20_17_498430921.jpg,ai,1,0.028908506,0
+data/AiArtData/AiArtData/Screen_Shot_2023-01-22_at_5.33.01_PM.png,ai,1,0.07230498,0
+data/AiArtData/AiArtData/240201-airec-main-ksp-5625e8.jpg,ai,1,0.07410407,0
+data/AiArtData/AiArtData/Boris-Eldagsen-AI-art.jpg,ai,1,0.07453307,0
+data/RealArt/RealArt/famous-paintings-fb.png,real,0,0.9836137,1
+data/RealArt/RealArt/iy1ex3cookmf9cme5qlnxa.jpg,real,0,0.9150752,1
+data/RealArt/RealArt/ct-art-vector-illustrations-creative-minimalist-hand-drawn-vector-2286463217.jpg,real,0,0.91492116,1
+data/RealArt/RealArt/getty_511618259_186076.jpg,real,0,0.91051656,1
+data/RealArt/RealArt/02-still-for-america-room-loop-superJumbo.jpg,real,0,0.79693675,1
+data/RealArt/RealArt/images60.jpg,real,0,0.71663475,1
