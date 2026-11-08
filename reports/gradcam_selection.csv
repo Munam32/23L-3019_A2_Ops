@@ -1,0 +1,9 @@
+path,class,label,p_ai,pred,group
+data/AiArtData/AiArtData/63964cc739abd575d50b68ed_google-not-against-ai.jpg,ai,1,0.9969887733459473,1,correct
+data/AiArtData/AiArtData/il_570xN.4588037671_ak6c.jpg,ai,1,0.9941654801368713,1,correct
+data/RealArt/RealArt/Personal-Crowd-Silhouettes-Human-Group-Of-People-2045498.jpg,real,0,0.012547537684440613,0,correct
+data/RealArt/RealArt/getty_511618259_186076.jpg,real,0,0.026107847690582275,0,correct
+data/RealArt/RealArt/02-still-for-america-room-loop-superJumbo.jpg,real,0,0.8204553723335266,1,wrong
+data/RealArt/RealArt/why_we_connect_with_vincent_van_goghs_paintings_1050x700.jpg,real,0,0.7899419665336609,1,wrong
+data/AiArtData/AiArtData/Midjourney-River.jpg,ai,1,0.1416631042957306,0,wrong
+data/AiArtData/AiArtData/Nov20_17_498430921.jpg,ai,1,0.14548368752002716,0,wrong
