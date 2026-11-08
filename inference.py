@@ -5,12 +5,10 @@ from pathlib import Path
 
 import tensorflow as tf
 
-MODEL_PATH = os.getenv("MODEL_PATH", "models/champion.keras")
-META_PATH = os.getenv("MODEL_META_PATH", str(Path(MODEL_PATH).with_suffix(".json")))
-
-
 class Classifier:
-    def __init__(self, model_path=MODEL_PATH, meta_path=META_PATH):
+    def __init__(self, model_path=None, meta_path=None):
+        model_path = model_path or os.getenv("MODEL_PATH", "models/champion.keras")
+        meta_path = meta_path or os.getenv("MODEL_META_PATH") or str(Path(model_path).with_suffix(".json"))
         self.model = tf.keras.models.load_model(model_path)
         meta = json.loads(Path(meta_path).read_text())
         self.threshold = float(os.getenv("THRESHOLD") or meta["threshold"])

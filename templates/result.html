@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Result - VisionGuard{% endblock %}
+{% block content %}
+<section class="card result">
+  <img class="preview" src="{{ preview }}" alt="Uploaded image preview">
+  <div>
+    <p class="muted">Verdict for {{ row.filename }}</p>
+    <h1 class="verdict {{ 'ai' if r.label == 'AI-generated' else 'real' }}">{{ r.label }}</h1>
+    <p>Confidence: <strong>{{ '%.1f' | format(r.confidence * 100) }}%</strong></p>
+    <div class="meter"><span style="width: {{ '%.1f' | format(r.confidence * 100) }}%"></span></div>
+    <p class="muted">Probability of AI-generated: {{ '%.1f' | format(r.p_ai * 100) }}% (decision threshold {{ '%.0f' | format(r.threshold * 100) }}%)</p>
+    <p class="muted">Model: {{ r.model }}</p>
+    <div class="note">This is a statistical estimate from a model trained on under 1,000 images. It is least reliable on paintings, stock photos, heavy edits and tiny images. Do not use it as the only evidence.</div>
+    <a class="button" href="{{ url_for('index') }}">Check another image</a>
+  </div>
+</section>
+{% endblock %}

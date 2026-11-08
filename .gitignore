@@ -10,3 +10,4 @@ requirements_run.txt
 *.keras
 *.h5
 /data
+samples/
