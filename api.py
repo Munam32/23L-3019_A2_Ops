@@ -26,6 +26,7 @@ def create_api(classifier=None):
     def predict():
         supplied = request.headers.get("X-API-Key", "")
         if not hmac.compare_digest(supplied.encode(), key.encode()):
+            request.get_data()  # drain the capped body so the client sees the 401 instead of a reset
             return jsonify(error="invalid or missing API key"), 401
         try:
             name, data = read_upload(request.files.get("image"))
