@@ -33,6 +33,11 @@ def post(client, data, name="a.png", key="test-key"):
                        content_type="multipart/form-data")
 
 
+def test_unknown_path_returns_json_404(client):
+    r = client.get("/nope")
+    assert r.status_code == 404 and r.get_json()["path"] == "/nope"
+
+
 def test_health_is_public(client):
     assert client.get("/health").get_json()["status"] == "ok"
 

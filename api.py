@@ -45,4 +45,8 @@ def create_api(classifier=None):
     def too_large(_):
         return jsonify(error="file too large"), 413
 
+    @api.errorhandler(404)
+    def not_found(_):
+        return jsonify(error="not found", path=request.path, script_root=request.script_root), 404
+
     return api

@@ -11,3 +11,4 @@ requirements_run.txt
 *.h5
 /data
 samples/
+*.onnx
