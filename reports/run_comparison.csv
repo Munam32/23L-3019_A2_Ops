@@ -1,0 +1,8 @@
+run,change,best_epoch,val_loss,val_auc,threshold,test_auc,test_acc,test_f1,test_recall,test_precision
+ref_manual,reference,5,0.4315,0.8783,0.05,0.8674,0.619,0.7431,1.0,0.5912
+ref_autolog,reference (autolog),2,0.4705,0.8425,0.23,0.8552,0.6667,0.761,0.963,0.629
+lr_1e-3,lr 1.7e-4 -> 1e-3,4,0.6871,0.5,0.05,0.5,0.551,0.7105,1.0,0.551
+no_augmentation,augmentation off,3,0.5107,0.8639,0.08,0.8612,0.7143,0.7789,0.9136,0.6789
+frozen_backbone,unfrozen layers 20 -> 0,30,0.5591,0.7741,0.15,0.7546,0.5578,0.7085,0.9753,0.5563
+img_size_160,image size 224 -> 160,6,0.4286,0.8914,0.25,0.8621,0.7619,0.8023,0.8765,0.7396
+efficientnetb0,backbone MobileNetV2 -> EfficientNetB0,3,0.4111,0.8911,0.2,0.8936,0.7211,0.7897,0.9506,0.6754
