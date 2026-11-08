@@ -8,6 +8,7 @@ import tensorflow as tf
 from sklearn.metrics import (accuracy_score, confusion_matrix, f1_score, fbeta_score,
                              precision_score, recall_score, roc_auc_score, roc_curve)
 
+from evalutil import pick_threshold
 from pipeline import make_ds
 
 MODELS = {"baseline": "models/baseline.keras", "mobilenet_stage2": "models/mobilenet_stage2.keras"}
@@ -18,12 +19,6 @@ test_y = test_df["label"].values
 
 def predict(model, split):
     return model.predict(make_ds(split, training=False), verbose=0).ravel()
-
-
-def pick_threshold(y, p):
-    grid = np.linspace(0.05, 0.95, 91)
-    scores = [fbeta_score(y, p >= t, beta=2) for t in grid]
-    return float(grid[int(np.argmax(scores))])
 
 
 rows, roc_data, cms = [], {}, {}
