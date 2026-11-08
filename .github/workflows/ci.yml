@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements-ci.txt
       - name: Lint
-        run: ruff check app.py api.py inference.py validation.py tests
+        run: ruff check app.py api.py remote.py inference.py validation.py vercel_api tests
       - name: Test
         run: python -m pytest tests -q
 

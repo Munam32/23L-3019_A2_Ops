@@ -10,6 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 from PIL import Image
 from sqlalchemy import text
 
+from remote import ServiceUnavailable
 from validation import UNDECODABLE, read_upload
 
 load_dotenv()
@@ -48,8 +49,12 @@ def create_app(config=None, classifier=None):
     db.init_app(app)
 
     if classifier is None:
-        from inference import Classifier
-        classifier = Classifier()
+        if os.getenv("INFERENCE_BACKEND", "local") == "remote":
+            from remote import RemoteClassifier
+            classifier = RemoteClassifier()
+        else:
+            from inference import Classifier
+            classifier = Classifier()
     with app.app_context():
         db.create_all()
 
@@ -64,6 +69,12 @@ def create_app(config=None, classifier=None):
             started = time.perf_counter()
             try:
                 result = classifier.predict(data)
+            except ServiceUnavailable:
+                app.logger.exception("model service unavailable")
+                return render_template("error.html", code=502, title="Model service unavailable",
+                                       message="The prediction service did not respond. Please try again shortly."), 502
+            except ValueError:
+                raise
             except Exception:
                 raise ValueError(UNDECODABLE) from None
             latency = int((time.perf_counter() - started) * 1000)
